@@ -5,7 +5,8 @@ import { toast } from 'react-toastify';
 import {auth} from '../firebase';
 import NavBar from './NavBar';
 import { useNavigate } from 'react-router-dom';
-
+import '../styles/navbar.css'
+import '../styles/login.css'
 
 const Login = () => {
     const [email, setEmail] = useState('')
@@ -75,7 +76,7 @@ const Login = () => {
     <NavBar/>
     <div className='flex justify-center items-center h-screen'>
         <div className='shadow-3xl p-5 rounded-lg'>
-        <h3 className='text-center'>Log In on <span className='text-primary'>Financely.</span></h3>
+        <h3 className='text-center'>Log In on <span className='text-primary'>MyShope.</span></h3>
         <form className='mt-7'>
             <label htmlFor='email' className='text-[14px]'>Email</label><br/>
             <input
@@ -104,7 +105,7 @@ const Login = () => {
             <button className='text-[10px] w-72 bg-primary border-none p-1 outline-none text-white mb-1' onClick={googleAuth}>
             Log In with Google
             </button>
-            <p className='p-3 text-[12px] text-center'><Link to='/'>Or Don't have An Account? Click Here</Link></p>
+            <p className='p-3 text-[12px] text-center'><Link to='/' className='link'>Or Don't have An Account? Click Here</Link></p>
         </form>
         </div>
     </div>

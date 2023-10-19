@@ -39,6 +39,7 @@ const NavBar = () => {
         <div className="linkbox">
           <Link to={"/"}>HOME</Link>
           <Link to={"/cart"}>CART</Link>
+          <Link to={"/"} onClick={logout}>LOGOUT</Link>
         </div>
       </nav>
     </div>

@@ -5,6 +5,7 @@ import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } f
 import NavBar from './NavBar';
 import { Link, useNavigate } from 'react-router-dom';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
+import '../styles/signup.css'
 const Signup = () => {
 
   const[name,setName] = useState('')
@@ -50,7 +51,7 @@ const Signup = () => {
             setEmail('');
             setPassword('');
             setConfirmPassword('');
-            createDoc(user)
+            //createDoc(user)
             navigate('/home')
           })
           .catch((error) => {
@@ -86,7 +87,7 @@ const Signup = () => {
       // The signed-in user info.
       const user = result.user;
       console.log('user->',user)
-      createDoc(user)
+      //createDoc(user)
       setLoading(false)
       navigate('/home')
       toast.success('User authenticated!');
@@ -106,39 +107,43 @@ const Signup = () => {
   
   }
   
-  async function createDoc(user){
-    // Make sure that the doc with the uid doesn't exist
-    // Create a Doc
-    if(!user) return;
-
-    const userRef = doc(db, "users",user.uid)
-    const userData = await getDoc(userRef)
-
-    if(!userData.exists()){
-      try{
-        await setDoc(doc(db, 'users', user.uid), {
-          name:user.displayName ? user.displayName : name,
-          email: user.email,
-          photoURL: user.photoURL ? user.photoURL:"",
-          createAt: new Date()
-        })
-        toast.success('Doc created')
-      }catch(e){
-        toast.error(e.message)
-      }
-    }else{
-      toast.error('Doc already exists')
-    }
-    
-    
-  }
+  // async function createDoc(user) {
+  //   if (!user) {
+  //     console.error('User is null or undefined.');
+  //     return;
+  //   }
+  
+  //   const userRef = doc(db, 'users', user.uid);
+  //   const userData = await getDoc(userRef);
+  
+  //   if (!userData.exists()) {
+  //     try {
+  //       const userDisplayName = user.displayName ? user.displayName : name; // Ensure 'name' is defined.
+  //       const userPhotoURL = user.photoURL ? user.photoURL : '';
+  
+  //       await setDoc(userRef, {
+  //         name: userDisplayName,
+  //         email: user.email,
+  //         photoURL: userPhotoURL,
+  //         createdAt: new Date(),
+  //       });
+  
+  //       toast.success('Doc created');
+  //     } catch (e) {
+  //       toast.error(e.message);
+  //     }
+  //   } else {
+  //     toast.error('Doc already exists');
+  //   }
+  // }
+  
   
   return (
-    <div className='w-100 h-screen overflow-hidden'>
+    <div className='w-100 h-screen overflow-hidden container'>
     <NavBar/>
     <div className='flex justify-center items-center h-full'>
     <div className='w-80 shadow-3xl p-5 rounded-lg mb-10'>
-      <h4 className='text-center mb-3'>Sign Up On <span className='text-primary'>Financely.</span></h4>
+      <h4 className='text-center mb-3'>Sign Up On <span className='text-primary'>MyShope.</span></h4>
       <form>
       <label htmlFor='name' className='text-[12px]'>Full Name</label><br/>
       <input 

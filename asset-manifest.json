@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ReactJS-Developer-Intern/static/css/main.cb067215.css",
+    "main.js": "/ReactJS-Developer-Intern/static/js/main.a03c11cf.js",
+    "index.html": "/ReactJS-Developer-Intern/index.html",
+    "main.cb067215.css.map": "/ReactJS-Developer-Intern/static/css/main.cb067215.css.map",
+    "main.a03c11cf.js.map": "/ReactJS-Developer-Intern/static/js/main.a03c11cf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cb067215.css",
+    "static/js/main.a03c11cf.js"
+  ]
+}
